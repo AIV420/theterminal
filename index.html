@@ -33,12 +33,14 @@
         </div>
     </div>
     <script>
-        function openWin(name,file) {
+        function openWin(name,file,w,h) {
             new WinBox({
                 title: name,
                 x: "center",
                 y: "center",
                 url: "./windows/"+file+".html",
+                width: w,
+                height: h,
             });
         }
     </script>

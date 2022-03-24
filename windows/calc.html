@@ -7,10 +7,51 @@
     <link rel="stylesheet" href="../css/uiterminal.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <title>Calculator</title>
+    <style>
+        .calc_btn {
+            height: 50px;
+            width: 50px;
+        }
+        .calc_body {
+            width: 200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            justify-items: stretch;
+            align-items: stretch;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .calc_input {
+            display: flex;
+            justify-self: center;
+            margin-bottom: 10px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 230px;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <div class='uiterminal-full'>
-        <p>Calculator</p>
+        <p style="text-align: center;">Calculator</p>
+        <input class="calc_input"></input>
+        <div class="calc_body">
+            <button class="calc_btn">1</button>
+            <button class="calc_btn">2</button>
+            <button class="calc_btn">3</button>
+            <button class="calc_btn">4</button>
+            <button class="calc_btn">5</button>
+            <button class="calc_btn">6</button>
+            <button class="calc_btn">7</button>
+            <button class="calc_btn">8</button>
+            <button class="calc_btn">9</button>
+            <button class="calc_btn">.</button>
+            <button class="calc_btn">0</button>
+            <button class="calc_btn">&lt;=</button>
+        </div>
     </div>
 </body>
 </html>
