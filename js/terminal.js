@@ -89,15 +89,44 @@ function submit_command() {
         if (registry.has(command.split(" ")[0].toUpperCase())) {
             registry.get(command.split(" ")[0].toUpperCase())(command);
         } else {
-            block_log("'" + command.split(" ")[0].toUpperCase() + "' is not a valid command, please refer to the documentation for proper usage.");
+            block_log("'" + command.split(" ")[0].toUpperCase() + "' is not a valid command, please provide an existing command.");
         }
     }
 }
 
 register_cmd("help", function(cmd) {
-    block_log("┌─ Help ─────────────┐");
-    block_log("│- help&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
-    block_log("│- calc&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
-    block_log("│ There are secrets! │");
-    block_log("└────────────────────┘");
+    var parameters = smart_split(cmd, " ", false).slice(1);
+    console.log(parameters);
+    if (parameters.length === 0) {
+        block_log("┌─ Help ─────────────┐");
+        block_log("│- help&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│- calc&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│ There are secrets! │");
+        block_log("└────────────────────┘");
+        return;
+    }
+
+    if (parameters[0].toString().toUpperCase() === "HELP") {
+        if (parameters.length === 1) {
+            block_log("┌─ help ─────────────────┐");
+            block_log("│ Usage: help &lt;command&gt; &nbsp│");
+            block_log("│ Gets information about │");
+            block_log("│ the specified command. │");
+            block_log("└────────────────────────┘");
+            return;
+        }
+    } else if (parameters[0].toString().toUpperCase() === "CALC") {
+        if (parameters.length === 1) {
+            block_log("┌─ calc ───────────────┐");
+            block_log("│ Usage: calc &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("│ Opens the calculator │");
+            block_log("│ window. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("└──────────────────────┘");
+            return;
+        }
+    } else {
+        block_log("'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.");
+    }
+
+
 });
