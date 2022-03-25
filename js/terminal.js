@@ -124,9 +124,39 @@ register_cmd("help", function(cmd) {
             block_log("└──────────────────────┘");
             return;
         }
+    } else if (parameters[0].toString().toUpperCase() === "CPRIGHT") {
+        if (parameters.length === 1) {
+            block_log("┌─ cpright ─────────────┐");
+            block_log("│ Usage: cpright (more) │");
+            block_log("│ Outputs the copyright │");
+            block_log("│ notice. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("└───────────────────────┘");
+            return;
+        }
     } else {
         block_log("'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.");
     }
+});
 
-
+register_cmd("cpright",function(cmd) {
+    var parameters = smart_split(cmd, " ", false).slice(1);
+    console.log(parameters);
+    if (parameters.length === 0) {
+        block_log("© Copyright information:");
+        block_log(" - Most of this webpage was made by Nexis.");
+        block_log(" - There were some dependencies used, like:");
+        block_log(" &nbsp&nbsp· Winbox.js by Nextapps");
+        block_log(" &nbsp&nbsp· UiTerminal by omerimzali");
+        block_log(" Thank you for your cooperation.");
+        block_log(" Type 'cpright more' for the copyright notice.");
+        return;
+    }
+    if (parameters[0].toString().toUpperCase() === "MORE") {
+        if (parameters.length === 1) {
+            log("Yo! You found the secret. This thing isn't copyrighted yet!!!");
+            return;
+        }
+    } else {
+        block_log("'"+parameters[0].toString()+"' is not a part of this command. Please provide a valid paramenter.");
+    }
 });
