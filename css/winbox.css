@@ -61,7 +61,7 @@ body.wb-drag iframe {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     will-change: contents;
-    background: #fff;
+    background: #212222;
     margin-top: 0 !important;
     contain: strict;
 }
