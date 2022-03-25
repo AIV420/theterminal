@@ -71,7 +71,7 @@ body {
 }
 
 #input input {
-    width: 85%;
+    max-width: 85%;
     display: inline-block;
 }
 
