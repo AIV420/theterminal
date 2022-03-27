@@ -101,6 +101,7 @@ register_cmd("help", function(cmd) {
         block_log("┌─ Help ─────────────┐");
         block_log("│- help&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- calc&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│- cpright&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│ There are secrets! │");
         block_log("└────────────────────┘");
         return;
