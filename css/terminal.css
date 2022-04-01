@@ -22,7 +22,7 @@ body {
 }
 
 #screen {
-    background-color: black;
+    background-color: #282a36;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -49,7 +49,7 @@ body {
     padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #00e676;
+    color: #f8f8f2;
     font-family: 'Source Code Pro', monospace;
 }
 
@@ -60,10 +60,11 @@ body {
 #input {
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 #input p {
-    color: #00e676;
+    color: #f8f8f2;
     display: inline-block;
     font-family: 'Source Code Pro', monospace;
     padding-right: .4em;
@@ -71,14 +72,14 @@ body {
 }
 
 #input input {
-    max-width: 85%;
+    width: 85%;
     display: inline-block;
 }
 
 input[type="command"] {
-    background-color: black;
+    background-color: #282a36;
     border: 0;
-    color: #00e676;
+    color: #f8f8f2;
     font-family: 'Source Code Pro', monospace;
     font-size: 16px;
     outline: 0;
@@ -103,9 +104,9 @@ input[type="command"] {
     border: 0px solid #424242;
   }
   *::-moz-selection {
-    background: gray;
+    background: #44475a;
   }
   
   *::selection {
-    background: gray;
+    background: #44475a;
   }

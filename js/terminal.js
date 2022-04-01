@@ -42,7 +42,7 @@ var terminal_user_title = "C:/usr/guest ";
 
 function update_user_title(title) {
     terminal_user_title = title;
-    document.getElementById("input_title").innerText = terminal_user_title + " > ";
+    document.getElementById("input_title").innerHTML = terminal_user_title + "<span style='color: #6272a4;'>></span>";
 }
 
 update_user_title(terminal_user_title);
@@ -64,10 +64,6 @@ function log(message) {
     var wrapper = document.getElementById('wrapper');
     wrapper.innerHTML += "<div class='log'><p>" + message + "</p></div>";
 }
-
-document.getElementById('input_source').onblur = function() {
-    document.getElementById("input_source").focus();
-};
 
 document.getElementById('input_source').addEventListener('keyup', submit_command);
 
