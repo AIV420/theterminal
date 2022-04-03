@@ -85,7 +85,7 @@ function submit_command() {
         if (registry.has(command.split(" ")[0].toUpperCase())) {
             registry.get(command.split(" ")[0].toUpperCase())(command);
         } else {
-            block_log("'" + command.split(" ")[0].toUpperCase() + "' is not a valid command, please provide an existing command.");
+            block_log("<span style='color: #ff5555;'>'" + command.split(" ")[0].toUpperCase() + "' is not a valid command, please provide an existing command.</span>");
         }
     }
 }
@@ -131,7 +131,7 @@ register_cmd("help", function(cmd) {
             return;
         }
     } else {
-        block_log("'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.");
+        block_log("<span style='color: #ff5555;'>'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.</span>");
     }
 });
 
@@ -145,7 +145,7 @@ register_cmd("cpright",function(cmd) {
         block_log(" &nbsp&nbsp· Winbox.js by Nextapps");
         block_log(" &nbsp&nbsp· UiTerminal by omerimzali");
         block_log(" Thank you for your cooperation.");
-        block_log(" Type 'cpright more' for the copyright notice.");
+        block_log(" Type '<b class='logcmd'>cpright more</b>' for the copyright notice.");
         return;
     }
     if (parameters[0].toString().toUpperCase() === "MORE") {

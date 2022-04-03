@@ -84,6 +84,10 @@ input[type="command"] {
     font-size: 16px;
     outline: 0;
 }
+.logcmd {
+  color: #f1fa8c;
+  cursor: pointer;
+}
 
   * {
     scrollbar-width: auto;
