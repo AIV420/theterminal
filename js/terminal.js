@@ -80,7 +80,7 @@ function submit_command() {
     document.getElementById("input_source").value = "";
     if (command !== "") {
         new_block();
-        block_log(terminal_user_title + " > " + command);
+        block_log(terminal_user_title + "<span style='color: #6272a4;'>> </span>" + command);
 
         if (registry.has(command.split(" ")[0].toUpperCase())) {
             registry.get(command.split(" ")[0].toUpperCase())(command);
