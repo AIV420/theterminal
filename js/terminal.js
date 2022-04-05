@@ -1,3 +1,5 @@
+document.getElementById('input_source').focus();
+
 function smart_split(input, del, empty_space) {
     if (input.length === 0) return input;
     var outputs = [""];
@@ -92,12 +94,12 @@ function submit_command() {
 
 register_cmd("help", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
-    console.log(parameters);
     if (parameters.length === 0) {
         block_log("┌─ Help ─────────────┐");
         block_log("│- help&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- calc&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- cpright&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│- about&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│ There are secrets! │");
         block_log("└────────────────────┘");
         return;
@@ -130,30 +132,22 @@ register_cmd("help", function(cmd) {
             block_log("└───────────────────────┘");
             return;
         }
+    } else if (parameters[0].toString().toUpperCase() === "ABOUT") {
+        if (parameters.length === 1) {
+            block_log("┌─ about ────────────────┐");
+            block_log("│ Usage: about &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("│ Gets information about │");
+            block_log("│ this project. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp │");
+            block_log("└────────────────────────┘");
+            return;
+        }
     } else {
         block_log("<span style='color: #ff5555;'>'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.</span>");
     }
 });
 
-register_cmd("cpright",function(cmd) {
-    var parameters = smart_split(cmd, " ", false).slice(1);
-    console.log(parameters);
-    if (parameters.length === 0) {
-        block_log("© Copyright information:");
-        block_log(" - Most of this webpage was made by Nexis.");
-        block_log(" - There were some dependencies used, like:");
-        block_log(" &nbsp&nbsp· Winbox.js by Nextapps");
-        block_log(" &nbsp&nbsp· UiTerminal by omerimzali");
-        block_log(" Thank you for your cooperation.");
-        block_log(" Type '<b class='logcmd'>cpright more</b>' for the copyright notice.");
-        return;
-    }
-    if (parameters[0].toString().toUpperCase() === "MORE") {
-        if (parameters.length === 1) {
-            log("Yo! You found the secret. This thing isn't copyrighted yet!!!");
-            return;
-        }
-    } else {
-        block_log("'"+parameters[0].toString()+"' is not a part of this command. Please provide a valid paramenter.");
-    }
-});
+function cmdclick(cmdtorun) {
+    document.getElementById("input_source").value = cmdtorun;
+    submit_command(event.keyCode=13);
+    document.getElementById('input_source').focus();
+}
