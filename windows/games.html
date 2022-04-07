@@ -9,5 +9,20 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
+    <div class="uiterminal-full" >
+        <div style="width:640px;height:480px;max-width:100%;margin-left: auto;margin-right: auto;">
+            <div id="game"></div>
+        </div>
+    </div>
+    <script>
+        var gameurladdon = location.hash.replace('#','')
+        EJS_player = "#game";
+        EJS_core = "gba";
+        EJS_gameName = "The Minish Cap";
+        EJS_startOnLoaded = true;
+        EJS_pathtodata = "https://ghcdn.rawgit.org/ethanaobrien/emulatorjs/main/data/";
+        EJS_gameUrl = "https://ghcdn.rawgit.org/jsemu2/gba/gh-pages/Binaries/"+gameurladdon+".gba";
+    </script>
+    <script src="https://ghcdn.rawgit.org/ethanaobrien/emulatorjs/main/data/loader.js"></script>
 </body>
 </html>

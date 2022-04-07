@@ -100,6 +100,7 @@ register_cmd("help", function(cmd) {
         block_log("│- calc&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- cpright&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- about&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│- games&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│ There are secrets! │");
         block_log("└────────────────────┘");
         return;
@@ -139,6 +140,15 @@ register_cmd("help", function(cmd) {
             block_log("│ Gets information about │");
             block_log("│ this project. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp │");
             block_log("└────────────────────────┘");
+            return;
+        }
+    } else if (parameters[0].toString().toUpperCase() === "GAMES") {
+        if (parameters.length === 1) {
+            block_log("┌─ games ─────────────────┐");
+            block_log("│ Usage: games &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("│ Gets the top five games │");
+            block_log("│ on this site. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp │");
+            block_log("└─────────────────────────┘");
             return;
         }
     } else {

@@ -24,7 +24,7 @@ register_cmd("cpright",function(cmd) {
 });
 
 register_cmd("calc", function(cmd) {
-    openWin("Calculator","calc","300px","450px");
+    openWin("Calculator","calc.html","300px","450px");
     log("Opened the calculator.");
 });
 
@@ -36,8 +36,8 @@ register_cmd("games", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
     if (parameters.length === 0) {
         block_log("--==+ 5 Games of the month +==--");
-        block_log(` &nbsp&nbsp&nbsp 1. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">this</b>`);
-        block_log(` &nbsp&nbsp&nbsp 2. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">game</b>`);
+        block_log(` &nbsp&nbsp&nbsp 1. <b class="logcmd" onclick="gameclick('zelda_minish', 'The Minish Cap');">The Minish Cap</b>`);
+        block_log(` &nbsp&nbsp&nbsp 2. <b class="logcmd" onclick="gameclick('zelda_past', 'A Link to the Past');">A Link to the Past</b>`);
         block_log(` &nbsp&nbsp&nbsp 3. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">is</b>`);
         block_log(` &nbsp&nbsp&nbsp 4. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">fun</b>`);
         block_log(` &nbsp&nbsp&nbsp 5. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">nope</b>`);
@@ -53,6 +53,5 @@ register_cmd("games", function(cmd) {
 });
 
 function gameclick(gameid,gamename) {
-    openWin("Games - "+gamename,"games","700px","500px");
-    var gamewin = document.getElementById('gamewin')
+    openWin("Games - "+gamename,"games.html#"+gameid,"750px","550px");
 }
