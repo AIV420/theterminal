@@ -38,9 +38,9 @@ register_cmd("games", function(cmd) {
         block_log("--==+ 5 Games of the month +==--");
         block_log(` &nbsp&nbsp&nbsp 1. <b class="logcmd" onclick="gameclick('zelda_minish', 'The Minish Cap');">The Minish Cap</b>`);
         block_log(` &nbsp&nbsp&nbsp 2. <b class="logcmd" onclick="gameclick('zelda_past', 'A Link to the Past');">A Link to the Past</b>`);
-        block_log(` &nbsp&nbsp&nbsp 3. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">is</b>`);
-        block_log(` &nbsp&nbsp&nbsp 4. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">fun</b>`);
-        block_log(` &nbsp&nbsp&nbsp 5. <b class="logcmd" onclick="gameclick('game1', 'cool game!');">nope</b>`);
+        block_log(` &nbsp&nbsp&nbsp 3. <b class="logcmd" onclick="gameclick('advancewars', 'Advance Wars');">Advance Wars</b>`);
+        block_log(` &nbsp&nbsp&nbsp 4. <b class="logcmd" onclick="gameclick('advancewars2', 'Advance Wars 2');">Advance Wars 2</b>`);
+        block_log(` &nbsp&nbsp&nbsp 5. <b class="logcmd" onclick="gameclick('superstar', 'Mario & Luigi: Superstar Saga');">Mario &amp; Luigi: Superstar Saga</b>`);
     }
     if (parameters[0].toString().toUpperCase() === "MORE") {
         if (parameters.length === 1) {
@@ -55,3 +55,16 @@ register_cmd("games", function(cmd) {
 function gameclick(gameid,gamename) {
     openWin("Games - "+gamename,"games.html#"+gameid,"750px","550px");
 }
+
+register_cmd("editor", function(cmd) {
+    var parameters = smart_split(cmd, " ", false).slice(1);
+    if (parameters.length === 0) {
+        log("You did not provide a language, opened the text editor.")
+        openWin("TEXT Editor","editor.html#text","700px","450px");
+    }
+    if (parameters.length === 1) {
+        log("Opened the editor.");
+        openWin(parameters[0].toUpperCase()+" Editor","editor.html#"+parameters[0],"700px","450px");
+        return;
+    }
+});

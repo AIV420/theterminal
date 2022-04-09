@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <link rel="stylesheet" href="../css/uiterminal.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+        html, body, #container {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	    overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+    <div id="container"></div>
+    <script>
+        var langurladdon = location.hash.replace('#','')
+        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' }});
+        window.MonacoEnvironment = { getWorkerUrl: () => proxy };
+
+        let proxy = URL.createObjectURL(new Blob([`
+	        self.MonacoEnvironment = {
+		        baseUrl: 'https://unpkg.com/monaco-editor@latest/min/'
+	        };
+	        importScripts('https://unpkg.com/monaco-editor@latest/min/vs/base/worker/workerMain.js');
+        `], { type: 'text/javascript' }));
+
+        require(["vs/editor/editor.main"], function () {
+            let editor = monaco.editor.create(document.getElementById('container'), {
+                value: [
+                    'Welcome to the terminal editor for '+langurladdon.toString().toLowerCase()+'!',
+                ].join('\n'),
+                language: langurladdon.toString().toLowerCase(),
+                theme: 'vs-dark',
+                automaticLayout:true,
+            });
+        });
+    </script>
+</body>
+</html>

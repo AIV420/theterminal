@@ -44,7 +44,7 @@ var terminal_user_title = "C:/usr/guest ";
 
 function update_user_title(title) {
     terminal_user_title = title;
-    document.getElementById("input_title").innerHTML = terminal_user_title + "<span style='color: #6272a4;'>></span>";
+    document.getElementById("input_title").innerHTML = terminal_user_title + "<span style='color: #6272a4;'>> </span>";
 }
 
 update_user_title(terminal_user_title);
@@ -101,6 +101,7 @@ register_cmd("help", function(cmd) {
         block_log("│- cpright&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- about&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│- games&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
+        block_log("│- editor&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp│");
         block_log("│ There are secrets! │");
         block_log("└────────────────────┘");
         return;
@@ -150,7 +151,16 @@ register_cmd("help", function(cmd) {
             block_log("│ on this site. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp │");
             block_log("└─────────────────────────┘");
             return;
-        }
+        } 
+    } else if (parameters[0].toString().toUpperCase() === "EDITOR") {
+        if (parameters.length === 1) {
+            block_log("┌─ editor ──────────────────┐");
+            block_log("│ Usage: editor &lt;lang&gt; &nbsp&nbsp&nbsp&nbsp&nbsp│");
+            block_log("│ Opens the terminal editor │");
+            block_log("│ window with a language!&nbsp&nbsp │");
+            block_log("└───────────────────────────┘");
+            return;
+        } 
     } else {
         block_log("<span style='color: #ff5555;'>'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.</span>");
     }
