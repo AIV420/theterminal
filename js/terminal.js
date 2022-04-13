@@ -161,6 +161,24 @@ register_cmd("help", function(cmd) {
             block_log("└───────────────────────────┘");
             return;
         } 
+    } else if (parameters[0].toString().toUpperCase() === "LOGIN") {
+        if (parameters.length === 1) {
+            block_log("┌─ login ─────────────────────────────┐");
+            block_log("│ Usage: login &lt;email&gt; &lt;password&gt;&nbsp&nbsp&nbsp&nbsp │");
+            block_log("│ Logs in with the provided email and │");
+            block_log("│ password or opens the login window. │");
+            block_log("└─────────────────────────────────────┘");
+            return;
+        } 
+    } else if (parameters[0].toString().toUpperCase() === "SIGNUP") {
+        if (parameters.length === 1) {
+            block_log("┌─ signup ─────────────────────────────┐");
+            block_log("│ Usage: signup &lt;email&gt; &lt;password&gt;&nbsp&nbsp&nbsp&nbsp │");
+            block_log("│ Signs up with the provided email and │");
+            block_log("│ password or opens the signup window. │");
+            block_log("└──────────────────────────────────────┘");
+            return;
+        } 
     } else {
         block_log("<span style='color: #ff5555;'>'"+parameters[0].toString()+"' is not a valid command, please provide an existing command.</span>");
     }
