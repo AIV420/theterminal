@@ -53,10 +53,6 @@ register_cmd("about", function(cmd) {
     log("About us");
 });
 
-function gameclick(gameid,gamename) {
-    openWin("Games - "+gamename,"games.html#"+gameid,"750px","550px");
-}
-
 register_cmd("games", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
     if (parameters.length === 0) {
