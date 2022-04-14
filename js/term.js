@@ -53,6 +53,10 @@ register_cmd("about", function(cmd) {
     log("About us");
 });
 
+function gameclick(gameid,gamename) {
+    openWin("Games - "+gamename,"games.html#"+gameid,"750px","550px");
+}
+
 register_cmd("games", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
     if (parameters.length === 0) {
@@ -73,10 +77,6 @@ register_cmd("games", function(cmd) {
         block_log("'"+parameters[0].toString()+"' is not a part of this command. Please provide a valid parameter.");
     }
 });
-
-function gameclick(gameid,gamename) {
-    openWin("Games - "+gamename,"games.html#"+gameid,"750px","550px");
-}
 
 register_cmd("editor", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
