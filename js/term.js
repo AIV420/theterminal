@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { getAuth  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAIGJx51zZmc_w1Y_0_BlMuyGS35_tbqq0",
@@ -18,6 +18,17 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+try {
+    const docRef = await setDoc(doc(db, "users", "pickle69420"), {
+        email: "andreilivshits@gmail.com",
+        creationdate: "today",
+        bio: "pickle69420's account",
+        displayname: "PICKLE",
+    });
+} catch (e) {
+    console.error("Error adding document: ", e);
+}
 
 log(`© <span style="color: #8be9fd;">2022</span> by Nexis Inc. Type '<b class="logcmd" onclick="cmdclick('cpright');">cpright</b>' for more information.`);
 log(`Welcome to The Terminal. Type '<b class="logcmd" onclick="cmdclick('help');">help</b>' for help.`);
@@ -92,6 +103,7 @@ register_cmd("login", function(cmd) {
     var parameters = smart_split(cmd, " ", false).slice(1);
     if (parameters.length === 0) {
         log("Opened the Login window.");
+        openWin("Login","login-signup.html#login","450px","500px");
         return;
     }
     if (parameters.length === 1) {
